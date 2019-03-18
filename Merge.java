@@ -15,4 +15,15 @@ public class Merge{
     int[] data = {80, 60, 90, 50, 70};
     mergesort(data);
   }
+  public static void merge(int[] data1, int[] data2){
+    int l = 0;
+    int h = 0;
+    for (int i = 0; i < data1.length + data2.length; i++){
+      if (l < data1.length && h < data2.length){
+        if (data1[l] > data2[h]){
+          
+        }
+      }
+    }
+  }
 }
