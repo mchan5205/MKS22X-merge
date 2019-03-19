@@ -1,20 +1,34 @@
 import java.util.*;
 public class Merge{
   public static void mergesort(int[] data){
-    mergesorth(data, 0, data.length - 1);
+    mergesorth(data, 0, data.length);
   }
   private static void mergesorth(int[] data, int low, int high){
     if (low >= high){
       return;
     }
-    int[] lary = new int[data.length / 2];
-    int[] hary = new int[data.length - (data.length / 2)];
+    int[] lary;
+    if ((high - low) % 2 == 0){
+      lary = new int[(high - low) / 2];
+    }
+    else{
+      lary = new int[(high - low) / 2 + 1];
+    }
+    int i = 0;
+    while (i < lary.length){
+      lary[i] = data[low + i];
+      i++;
+    }
+    int[] hary = new int[(high - low) / 2];
+    int h = 0;
+    while (h < hary.length){
+      hary[h] = data[low + i];
+      h++;
+      i++;
+    }
   }
   public static void main(String[] args){
     int[] data = {80, 60, 90, 50, 70};
-    int[] data1 = {80};
-    int[] data2 = {60};
-    merge(data1, data2, 0, data);
     System.out.println(Arrays.toString(data));
     mergesort(data);
   }
