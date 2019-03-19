@@ -26,6 +26,10 @@ public class Merge{
       h++;
       i++;
     }
+    mergesorth(data, low, lary.length - 2);
+    mergesorth(data, lary.length, high);
+    merge(lary,hary,low,data);
+    System.out.println(Arrays.toString(data));
   }
   public static void main(String[] args){
     int[] data = {80, 60, 90, 50, 70};
