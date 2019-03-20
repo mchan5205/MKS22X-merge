@@ -19,6 +19,7 @@ public class Merge{
       lary[i] = data[low + i];
       i++;
     }
+    System.out.println(Arrays.toString(lary) + " lary");
     int[] hary = new int[(high - low) / 2];
     int h = 0;
     while (h < hary.length){
@@ -26,15 +27,33 @@ public class Merge{
       h++;
       i++;
     }
-    mergesorth(data, low, lary.length - 2);
-    mergesorth(data, lary.length, high);
+    System.out.println(Arrays.toString(hary) + " hary");
+    if (lary.length != 1){
+      mergesorth(data, low, low + lary.length);
+    }
+    else{
+      mergesorth(data, low, low);
+    }
+    mergesorth(data, low + lary.length , high);
+    int o = 0;
+    while (o < lary.length){
+      lary[o] = data[low + o];
+      o++;
+    }
+    int t = 0;
+    while (t < hary.length){
+      hary[t] = data[low + o];
+      t++;
+      o++;
+    }
     merge(lary,hary,low,data);
     System.out.println(Arrays.toString(data));
   }
   public static void main(String[] args){
-    int[] data = {80, 60, 90, 50, 70};
+    int[] data = {38, 27, 43, 3, 9, 82, 10};
     System.out.println(Arrays.toString(data));
     mergesort(data);
+    System.out.println(Arrays.toString(data));
   }
   public static void merge(int[] data1, int[] data2, int low, int[] data){
     int l = 0;
